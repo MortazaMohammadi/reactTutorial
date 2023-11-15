@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.15.6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body> 
+    <h1>my website</h1>
+    <div id="banner">
+ 
+    </div>
+    <div id="events">
+
+    </div>
+    <footer>
+        <p>footer</p>
+    </footer>
+
+    <script type="text/babel">
+        //<!-- component -->
+        const Banner = () =>{ 
+            const title = 'welcome to my site'
+            const subtitle = ' sub title here'
+            const address = 'google.com'
+            return(
+                <div>
+                    <p className = 'banner'>Banner here</p>
+                    <h1>this is my title ({title})</h1>
+                    <p>this is sub title ({subtitle})</p>
+                    <p>Today's date: {new Date().toDateString()}</p> 
+                    <p>random number : {Math.random()* 100}</p>
+                    <a href={address}>google</a>
+                </div>
+                // deferences with jsx and html
+                //in jsx we cannot use class instead we use calssname
+                // cannot have to element only we can have one element example one div but we can use multiple element in parent element example in above beside tag p i can use any other tags but out of div elemnt i cann't use any
+                //we can use experation that it changes to value as in date in above
+                
+            )
+        }
+        const Events = () =>{
+            const title = 'title'
+            const sub = 'sub title'
+            const handleClick = () =>{
+                console.log('learn react ')
+                console.log('title',title)
+            }
+            return(
+                <div className="events">
+                    <h2>{title}</h2>
+                    <h3>{sub}</h3>
+                    <button onClick={handleClick}>Click me </button>
+                </div>
+            )
+        }   
+        // if i use the click function with () it auto click and not need to click else if we dont click the function click not call ass handleClick function in above
+        //<!-- render the componnet  -->
+        ReactDOM.render(<Banner />, document.getElementById('banner'));
+        ReactDOM.render(<Events />,document.getElementById('events'))
+    </script>
+</body>
+</html>
